@@ -4,7 +4,9 @@
 <h1>Places Remember</h1>
 <h2>About Us</h2>
 <h5>Lorem Ipsum About Us thorugh afkjbanf nsfanfafa jfnakfnwafafnag afkneagne</h5>
-
+<h4>You logged in as {{ user.socialaccount_set.all.0.extra_data.first_name }} {{ user.socialaccount_set.all.0.extra_data.last_name }}</h4>
+<img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+<br>
 <a href={% url 'create' %}>Create new place</a>
 <h5>Your places</h5>
     <ul>

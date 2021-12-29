@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.admin",
 
+    'django.contrib.gis',
+
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
@@ -88,7 +90,7 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        "ENGINE": "django.contrib.gis.db.backends.spatialite", 
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }

@@ -1,18 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Places Remember</h1>
-<h2>About Us</h2>
-<h5>Lorem Ipsum About Us thorugh afkjbanf nsfanfafa jfnakfnwafafnag afkneagne</h5>
+<div class="container">
+    <div class="row">
+        <!--<h1>🌇 Places Remember</h1> --!>
+    <h2>About Us</h2>
+    <h5>Lorem Ipsum About Us thorugh afkjbanf nsfanfafa jfnakfnwafafnag afkneagne</h5>
+    </div>
+    <div class="row">
+        <div class="col-2">
+<img class="img-thumbnail" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+        </div>
+        <div class="col-4">
 <h4>You logged in as {{ user.socialaccount_set.all.0.extra_data.first_name }} {{ user.socialaccount_set.all.0.extra_data.last_name }}</h4>
-<img src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
-<br>
+<a class="btn btn-warning" href="{% url 'account_logout' %}">Logout</a>
+        </div>
+        </div>
+    <div class="row">
+    <div class="col-3">
 <a href={% url 'create' %}>Create new place</a>
 <h5>Your places</h5>
-    <ul>
+    <ul class="list-group">
         {% for place in object_list %}
-        <li><a href={% url 'update' pk=place.pk %}>{{ place.title }}</a></li>
-        <a href={% url 'delete' pk=place.pk %}>delete</a>
+        <a href={% url 'update' pk=place.pk %}><li class="list-group-item">{{ place.title }}</li></a>
+        <a class="btn btn-danger" href={% url 'delete' pk=place.pk %}>delete</a>
         {% endfor %}
-    </ul>
+    </ul> 
+    </div>
+    </div>
+</div>
 {% endblock %}
+

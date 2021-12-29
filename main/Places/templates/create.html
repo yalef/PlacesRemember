@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <form enctype="multipart/form-data" method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-success"/>
+            </form>
+        </div>
+        <br>
+        <a class="btn btn-primary" href={% url 'home' %}>back</a>
+</div>
+{% endblock %}

@@ -8,4 +8,6 @@ from .models import Place
 
 @admin.register(Place)
 class ShopAdmin(OSMGeoAdmin):
+    default_zoom = 5
+    point_zoom = 5
     list_display = ('author', 'title', 'description', 'location')

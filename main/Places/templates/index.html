@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Example Project</h1>
+<h1>Places Remember</h1>
+<h2>About Us</h2>
+<h5>Lorem Ipsum About Us thorugh afkjbanf nsfanfafa jfnakfnwafafnag afkneagne</h5>
 
-<p>Welcome</p>
+<a href={% url 'create' %}>Create new place</a>
+<h5>Your places</h5>
+    <ul>
+        {% for place in object_list %}
+        <li><a href={% url 'update' pk=place.pk %}>{{ place.title }}</a></li>
+        <a href={% url 'delete' pk=place.pk %}>delete</a>
+        {% endfor %}
+    </ul>
 {% endblock %}

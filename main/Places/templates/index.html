@@ -18,7 +18,7 @@
         </div>
     <div class="row">
     <div class="col-3">
-<a href={% url 'create' %}>Create new place</a>
+    <a class="btn btn-primary" href={% url 'create' %}>Create new place</a>
 <h5>Your places</h5>
     <ul class="list-group">
         {% for place in object_list %}

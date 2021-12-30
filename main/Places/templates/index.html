@@ -3,10 +3,10 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <!--<h1>🌇 Places Remember</h1> --!>
     <h2>About Us</h2>
-    <h5>Lorem Ipsum About Us thorugh afkjbanf nsfanfafa jfnakfnwafafnag afkneagne</h5>
+    <h5><b>PlacesRemember</b> let you create your own memories about diffrent places.<br> Click "Create new place" to start!</h5>
     </div>
+    <br>
     <div class="row">
         <div class="col-2">
 <img class="img-thumbnail" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
@@ -21,15 +21,18 @@
     <br>
     <a class="btn btn-primary" href={% url 'create' %}>Create new place</a>
     <br>
-<h5>Your places</h5>
+<h5>Your memories:</h5>
+{% if object_list %}
     <ul class="list-group">
         {% for place in object_list %}
         <a href={% url 'update' pk=place.pk %}><li class="list-group-item">{{ place.title }}</li></a>
         <a class="btn btn-danger" href={% url 'delete' pk=place.pk %}>delete</a>
         {% endfor %}
     </ul> 
+{% else %}
+<h5 class="text-info">You have no memories</h5>
+{% endif %}
     </div>
     </div>
 </div>
 {% endblock %}
-
